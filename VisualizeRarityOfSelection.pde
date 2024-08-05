@@ -31,10 +31,10 @@ void setup()
   size(2000, 900);
   background(255);
   int[] graph_unit = new int[num_of_unit_1percent * 100];
-  for (int i=0; i<graph_unit.length; i++) graph_unit[i] = 0;
+  for (int i = 0; i < graph_unit.length; i++) graph_unit[i] = 0;
 
   // 閾値の設定
-  int[]threshold = new int [4];
+  int[] threshold = new int[4];
   // 両側1%
   threshold[0] = (num_of_tasks * 1 / 200);
   threshold[1] = (num_of_tasks * 1 / 40);
