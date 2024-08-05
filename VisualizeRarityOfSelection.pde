@@ -45,8 +45,8 @@ void setup()
   // 軸情報を表示
   textSize(20);
   fill(0);
-  for (int i = min_percent; i <= max_x_percent; i++) {
-    int x = (i - min_percent) * x_unit_size * num_of_unit_1percent;
+  for (int i = min_x_percent; i <= max_x_percent; i++) {
+    int x = (i - min_x_percent) * x_unit_size * num_of_unit_1percent;
     text(int(i), x + 10, 50);
     stroke(100);
     line(x, height, x, 0);
