@@ -1,4 +1,4 @@
-int num_of_tasks  = 200000;
+int num_of_tasks  = 5000000;
 
 // 実験の選択肢の数
 int num_of_choices = 4;
