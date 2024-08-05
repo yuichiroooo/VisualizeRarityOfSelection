@@ -80,8 +80,8 @@ void setup()
     else if (cur_th == 3) fill(220, 220, 255);
     else fill(100, 100, 255);
     // 描画するで
-    if((i / num_of_unit_1percent) >= min_percent && (i / num_of_unit_1percent) >= max_percent){
-      int x = (i - min_percent * num_of_unit_1percent) * x_unit_size;
+    if((i / num_of_unit_1percent) >= min_x_percent && (i / num_of_unit_1percent) >= max_x_percent){
+      int x = (i - min_x_percent * num_of_unit_1percent) * x_unit_size;
       rect(x, height, x_unit_size, -graph_unit[i] * ((float)height * 0.9 / maxHeight));
       total += graph_unit[i];
     }
