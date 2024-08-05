@@ -1,4 +1,4 @@
-int num_of_tasks  = 5000000;
+int num_of_tasks  = 10000000;
 
 // 実験の選択肢の数
 int num_of_choices = 4;
@@ -81,8 +81,10 @@ void setup()
   // 結果を表示
   textSize(128);
   fill(100, 100, 255);
-  text(num_of_choices + " choices", width/2, 150);
+  text(num_of_choices + " choices", width/2, 170);
   text("N = " + num_of_trials, width/2, 300);
+  textSize(64);
+  text("(" + num_of_tasks + " times)", width/2, 380); 
   // 画像として保存
   save(num_of_trials+".png");
 }
