@@ -1,4 +1,4 @@
-int num_of_tasks  = 10000000;
+int num_of_times  = 10000000;
 
 // 実験の選択肢の数
 int num_of_choices = 4;
@@ -40,11 +40,11 @@ void setup()
   for (int i = 0; i < graph_unit.length; i++) graph_unit[i] = 0;
 
   // ひたすら実施
-  for (int i = 0; i < num_of_tasks; i++) {
+  for (int i = 0; i < num_of_times; i++) {
     int xid = int(calcSelectionRate(num_of_choices, num_of_trials) * num_of_unit_1percent);
     graph_unit[xid]++;
     // 進捗を提示
-    if((i % (num_of_tasks/10)) == 0) println("#" + i);
+    if((i % (num_of_times/10)) == 0) println("#" + i);
   }
 }
 
@@ -70,11 +70,11 @@ void draw(){
   // 閾値の設定
   int[] threshold = new int[4];
   // 両側1%
-  threshold[0] = (num_of_tasks * 1 / 200);
-  threshold[1] = (num_of_tasks * 1 / 40);
+  threshold[0] = (num_of_times * 1 / 200);
+  threshold[1] = (num_of_times * 1 / 40);
   // 両側5%
-  threshold[2] = (num_of_tasks * 39 / 40);
-  threshold[3] = (num_of_tasks * 199 / 200);
+  threshold[2] = (num_of_times * 39 / 40);
+  threshold[3] = (num_of_times * 199 / 200);
   
   int total = 0;
   int cur_th = 0;
@@ -90,10 +90,10 @@ void draw(){
     else if (cur_th == 3) fill(220, 220, 255);
     else fill(100, 100, 255);
     // 描画するで
-    //if((i / num_of_unit_1percent) >= min_x_percent && (i / num_of_unit_1percent) >= max_x_percent){
+    if((i / num_of_unit_1percent) >= min_x_percent && (i / num_of_unit_1percent) <= max_x_percent){
       int x = (i - min_x_percent * num_of_unit_1percent) * x_unit_size;
       rect(x, height, x_unit_size, -graph_unit[i] * ((float)height * 0.9 / maxHeight));
-    //}
+    }
     total += graph_unit[i];
   }
 
@@ -103,7 +103,7 @@ void draw(){
   text(num_of_choices + " choices", width/2, 170);
   text("N = " + num_of_trials, width/2, 300);
   textSize(64);
-  text("(" + num_of_tasks + " times)", width/2, 380); 
+  text("(" + num_of_times + " times)", width/2, 380); 
   // 画像として保存
   save(num_of_trials+".png");
   noLoop();
